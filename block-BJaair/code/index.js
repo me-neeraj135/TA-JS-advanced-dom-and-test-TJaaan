@@ -1,16 +1,17 @@
 function myFunction() {
-  let cardsData = JSON.parse(localStorage.getItem(`cards`)) || [];
-
   let container = document.querySelector(`.container`);
   let ul = document.querySelector(`.root`);
   let form = document.querySelector(`form`);
+
+  let cardsData = JSON.parse(localStorage.getItem(`cards`)) || [];
+  // let cardsData = [];
 
   form.addEventListener(`submit`, event => {
     event.preventDefault();
     let title = event.target.elements.title.value;
     let category = event.target.elements.category.value;
 
-    if (title !== "" && category !== "") {
+    if (title !== `` && category !== ``) {
       let data = {};
       data.title = title;
       data.category = category;
@@ -23,6 +24,8 @@ function myFunction() {
     event.target.elements.title.value = ``;
     event.target.elements.category.value = ``;
   });
+
+  // handleEdit
 
   function handleEdit(event, info, index, label) {
     let elm = event.target; // p
@@ -46,6 +49,7 @@ function myFunction() {
       localStorage.setItem(`cards`, JSON.stringify(cardsData));
       createUi();
     });
+
     let parent = event.target.parentElement;
     parent.replaceChild(input, elm);
   }
@@ -54,13 +58,19 @@ function myFunction() {
     root.innerHTML = ``;
     let fragment = new DocumentFragment();
     data.forEach((elm, index) => {
+      console.log(data, elm);
       let li = document.createElement(`li`);
+      let wrapper = document.createElement(`div`);
+      wrapper.classList.add(`wrapper`);
+
       let p = document.createElement(`p`);
       p.innerText = elm.category;
 
       p.addEventListener(`dblclick`, event =>
         handleEdit(event, elm.category, index, `category`)
       );
+      let span = document.createElement(`span`);
+      span.innerText = `❌`;
 
       let h2 = document.createElement(`h2`);
       h2.innerText = elm.title;
@@ -69,7 +79,15 @@ function myFunction() {
         handleEdit(event, elm.title, index, `title`)
       );
 
-      li.append(p, h2);
+      wrapper.append(p, span);
+
+      span.addEventListener(`click`, e => {
+        cardsData.splice(index, 1);
+        createUi();
+        localStorage.setItem(`cards`, JSON.stringify(cardsData));
+      });
+
+      li.append(wrapper, h2);
       fragment.appendChild(li);
     });
     root.append(fragment);

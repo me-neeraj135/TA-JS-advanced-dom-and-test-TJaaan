@@ -106,7 +106,7 @@ section {
 }
 body {
   line-height: 1;
-  background-color: rgb(243, 135, 116);
+  background-color: rgb(236, 180, 170);
 }
 ol,
 ul {
@@ -157,15 +157,23 @@ header {
 
 ul {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   flex-wrap: wrap;
   li {
-    max-width: 40%;
-    padding: 0.5rem 1.5rem 0.5rem 0.5rem;
+    border-radius: 0.2rem;
+    max-width: 45%;
+    width: 100%;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
     border: 1px solid;
     background-color: rgb(41, 41, 82);
     margin: 0.5rem;
     text-transform: capitalize;
+
+    span {
+      cursor: pointer;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
 
     color: white;
     p {
@@ -181,7 +189,15 @@ ul {
       overflow-wrap: break-word;
     }
   }
+  .wrapper {
+    width: 100%;
+    // border: 1px solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
+
 .add-card {
   border: 3px solid blue;
 

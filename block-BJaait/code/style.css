@@ -1,0 +1,49 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: rgb(75, 75, 253);
+  text-align: center;
+}
+.container {
+  width: 50%;
+  height: 60vh;
+  margin: auto;
+  text-align: center;
+}
+form {
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid wheat;
+  width: 100%;
+  margin: auto;
+  padding: 1rem;
+  align-items: center;
+}
+
+input {
+  max-width: 100%;
+  width: 100%;
+
+  padding: 1rem;
+  background-color: blue;
+  outline: none;
+  font-size: 1.5rem;
+  font-weight: 800;
+  border: none;
+  color: white;
+}
+ul {
+  border: 1px solid;
+  padding: 0;
+}
+li {
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  margin: auto;
+  margin-top: 0.5rem;
+  align-items: center;
+  padding: 1rem;
+}

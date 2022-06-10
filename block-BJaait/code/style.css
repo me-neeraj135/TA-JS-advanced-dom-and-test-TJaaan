@@ -1,49 +1,111 @@
-* {
-  box-sizing: border-box;
-}
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,800");
 body {
-  background-color: rgb(75, 75, 253);
-  text-align: center;
-}
-.container {
-  width: 50%;
-  height: 60vh;
-  margin: auto;
-  text-align: center;
-}
-form {
-  display: flex;
-  justify-content: space-between;
-  border: 1px solid wheat;
-  width: 100%;
-  margin: auto;
-  padding: 1rem;
-  align-items: center;
+  background-color: #0072ff;
 }
 
-input {
-  max-width: 100%;
-  width: 100%;
-
-  padding: 1rem;
-  background-color: blue;
-  outline: none;
-  font-size: 1.5rem;
-  font-weight: 800;
-  border: none;
+body h1 {
+  text-align: center;
+  font-family: "Raleway", sans-serif;
   color: white;
+  font-size: 50px;
+  font-weight: normal;
 }
-ul {
-  border: 1px solid;
-  padding: 0;
+
+body .adder {
+  position: relative;
+  width: 250px;
+  margin: 0px auto;
+  display: block;
 }
-li {
-  list-style: none;
-  display: flex;
-  justify-content: space-between;
+
+body .adder ::-webkit-input-placeholder {
+  color: #cecece;
+}
+
+body .adder .input {
+  outline: none;
+  border: 1px solid white;
+  background-color: #0072ff;
+  color: white;
+  height: 50px;
+  width: 250px;
+  padding-left: 10px;
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
+  font-size: 16px;
+  margin-left: -5px;
+}
+
+body .adder span {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.8;
+  cursor: pointer;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+  color: white;
+  will-change: transform;
+}
+
+body .adder span:hover {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+body ul {
+  padding: 0px;
+}
+
+body ul .draggable {
+  will-change: transform;
+  font-family: "Raleway", sans-serif;
+  font-weight: 800;
+  height: 50px;
+  list-style-type: none;
+  margin: 10px;
   background-color: white;
-  margin: auto;
-  margin-top: 0.5rem;
-  align-items: center;
-  padding: 1rem;
+  color: #0072ff;
+  width: 250px;
+  line-height: 3.2;
+  padding-left: 10px;
+  cursor: move;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin: 10px auto;
+  position: relative;
 }
+
+body ul .draggable:after {
+  content: "drag me";
+  right: 7px;
+  font-size: 10px;
+  position: absolute;
+  cursor: pointer;
+  line-height: 5;
+  -webkit-transition: all 200ms;
+  transition: all 200ms;
+  -webkit-transition-timing-function: cubic-bezier(0.48, 0.72, 0.62, 1.5);
+          transition-timing-function: cubic-bezier(0.48, 0.72, 0.62, 1.5);
+  -webkit-transform: translateX(120%);
+          transform: translateX(120%);
+  opacity: 0;
+}
+
+body ul .draggable:hover:after {
+  opacity: 1;
+  -webkit-transform: translate(0);
+          transform: translate(0);
+}
+
+.over {
+  -webkit-transform: scale(1.1, 1.1);
+          transform: scale(1.1, 1.1);
+}
+/*# sourceMappingURL=style.css.map */
